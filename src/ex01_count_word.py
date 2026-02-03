@@ -38,11 +38,11 @@ def count_word_in_file(path: str | Path, word: str) -> int:
     with open(path , "r", encoding="utf-8") as file:
         if not Path(path).is_file():
             raise FileNotFoundError(f"El fichero {path} no existe.")
-        if word.strip()=="":
+        if word.strip()=="":  #si la palabra está vacía o solo espacios lanzamos error
             raise ValueError('La palabra no puede estar vacía o contener solo espacios.')
         contenido=file.read().lower() #leemos el contenido y lo pasamos a minúsculas
-        for p in punt:
-            contenido=contenido.replace(p," ") #reemplazamos la puntuación por espacios
+        for punt2 in punt:#en este bucle reemplazamos todas las puntuaciones por espacios
+            contenido=contenido.replace(punt2," ") #reemplazamos la puntuación por espacios
             palabras=contenido.split() #separamos el contenido en palabras
         for p in palabras:
             if p==word.lower(): #comparo cada palabra con la palabra buscada
