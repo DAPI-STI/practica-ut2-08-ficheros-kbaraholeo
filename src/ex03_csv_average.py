@@ -42,7 +42,7 @@ def csv_average(path: str | Path, column: str) -> float:
         op1=0.0 #operando1 para la suma de las notas
         contador=0 #contador para contar el número de notas
         for fila in datos:
-            if column not in fila:
+            if column not in fila:# con "column" comprobamos si la columna existe en la cabecera
                 raise ValueError("La columna no existe en la cabecera.")
             else:
                 op1+=float(fila[column]) #sumamos la nota convertida a float

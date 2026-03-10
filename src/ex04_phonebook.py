@@ -107,7 +107,7 @@ def get_phone(path: str | Path, name: str) -> str | None:
     - Si el fichero no existe, devuelve None (porque no hay contactos).
     - `name` se compara tras strip().
     """
-    with open(path, "w", encoding="utf-8") as file:
+    with open(path, "r", encoding="utf-8") as file:
         if not Path(path).is_file(): #si el fichero no existe, devolvemos None
             return None
         if name.strip()=="": #si el nombre está vacío tras eliminar los espacios en blanco, devolvemos None
